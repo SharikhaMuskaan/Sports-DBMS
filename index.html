@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky">
+        <a href="#" class="logo"><img src="logo_new.png" alt="Club Logo"></a>
+        <div class="menu">
+            <div class="btn">
+                <i class="fas fa-times close-btn"></i>
+            </div>
+            <a href="#" onclick="navigateTo('Home')">Home</a>
+            <a href="#" onclick="navigateTo('Teams')">Teams</a>
+            <a href="#" onclick="navigateTo('Matches')">Matches</a>
+            <a href="#" onclick="navigateTo('Venue')">Venue</a>
+            <a href="#" onclick="navigateTo('Results')">Results</a>
+            <a href="#" onclick="navigateTo('Player')">Player</a>
+            <a class="signup_btn" href="#" onclick="navigateTo('Login')">Login</a>
+        </div>
+        <div class="btn">
+            <i class="fas fa-bars menu-btn"></i>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="Home">
+        
+    </section>
+
+    
+   <!-- Teams Section -->
+<section id="Teams" class="section-container" style="display: none;" data-role="user">
+    <h2>Teams</h2>
+    <form id="teamForm" action="team_tbl.php" method="post" enctype="multipart/form-data" class="team-form">
+        <!-- Team Name -->
+        <label for="teamName">Team Name:</label>
+        <input type="text" id="teamName" name="teamName" placeholder="Enter Team Name" required>
+
+        <!-- Team Location -->
+        <label for="teamLocation">Location:</label>
+        <input type="text" id="teamLocation" name="teamLocation" placeholder="Enter Team Location" required>
+
+        <!-- Coach Name -->
+        <label for="coachName">Coach Name:</label>
+        <input type="text" id="coachName" name="coachName" placeholder="Enter Coach Name" required>
+
+        <!-- Team Logo Upload -->
+        <label for="teamLogo">Upload Team Logo:</label>
+        <input type="file" id="teamLogo" name="teamLogo" accept="image/*">
+
+        <!-- Submit Button -->            
+        <button type="submit">Submit Team</button>
+    </form>
+</section>
+    
+
+
+
+
+    <!-- Matches Section -->
+<section id="Matches" style="display: none;" data-role="user">
+    <h2>Matches</h2>
+    <p>Upcoming matches and match history...</p>
+
+    <form id="matchForm" action="match_tbl.php" target="_blank" >
+        <div>
+            <label for="matchDate">Match Date:</label>
+            <input type="date" id="matchDate" name="matchDate" required>
+        </div>
+        <div>
+            <label for="teamA">Team A:</label>
+            <input type="text" id="teamA" name="teamA" placeholder="Enter Team A" required>
+        </div>
+        <div>
+            <label for="teamB">Team B:</label>
+            <input type="text" id="teamB" name="teamB" placeholder="Enter Team B" required>
+        </div>
+        <div>
+            <label for="venue">Venue:</label>
+            <input type="text" id="venue" name="venue" placeholder="Enter Venue" required>
+        </div>
+        <div>
+            <button type="submit">Add Match</button>
+        </div>
+    </form>
+</section>
+
+
+   <!-- Venue Section -->
+<section id="Venue" style="display: none;" data-role="user">
+    <h2>Venue</h2>
+    <p>Information about the match venues...</p>
+
+    <form id="venueForm" action="venue_tbl.php" target="_blank">
+        <div>
+            <label for="venueName">Venue Name:</label>
+            <input type="text" id="venueName" name="venueName" placeholder="Enter Venue Name" required>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter Location" required>
+        </div>
+        <div>
+            <label for="capacity">Capacity:</label>
+            <input type="number" id="capacity" name="capacity" placeholder="Enter Capacity" required>
+        </div>
+        <div>
+            <button type="submit">Add Venue</button>
+        </div>
+    </form>
+</section>
+
+
+   <!-- Results Section -->
+<section id="Results" style="display: none;" data-role="user">
+    <h2>Results</h2>
+    <!-- <p>Match results and standings...</p> -->
+
+    <form id="resultsForm" action="results_tbl.php" target="_blank">
+        <div>
+            <label for="resultDate">Result Date:</label>
+            <input type="date" id="resultDate" name="resultDate" required>
+        </div>
+        <div>
+            <label for="teamA">Team A:</label>
+            <input type="text" id="teamA" name="teamA" placeholder="Enter Team A" required>
+        </div>
+        <div>
+            <label for="scoreA">Score Team A:</label>
+            <input type="number" id="scoreA" name="scoreA" placeholder="Enter Score for Team A" required>
+        </div>
+        <div>
+            <label for="teamB">Team B:</label>
+            <input type="text" id="teamB" name="teamB" placeholder="Enter Team B" required>
+        </div>
+       
+        <div>
+            <label for="scoreB">Score Team B:</label>
+            <input type="number" id="scoreB" name="scoreB" placeholder="Enter Score for Team B" required>
+        </div>
+        <div>
+            <button type="submit">Add Result</button>
+        </div>
+    </form>
+
+    <div id="matchResult" style="margin-top: 20px;"></div>
+</section>
+
+
+   <!-- Player Section -->
+<section id="Player" style="display: none;" data-role="user">
+    <h2>Player</h2>
+    <p>Details about the players...</p>
+
+    <form id="playerForm" action="palyer_tbl.php" target="_blank">
+        <div>
+            <label for="playerName">Player Name:</label>
+            <input type="text" id="playerName" name="playerName" placeholder="Enter Player Name" required>
+        </div>
+        <div>
+            <label for="playerdob">player DOB:</label>
+            <input type="date" id="playerdob" name="playerdob" required>
+        </div>
+        <div>
+            <label for="playermob">player mobile:</label>
+            <input type="number" id="playermob" name="playermob" required>
+        </div>
+        <div>
+            <label for="playermail">player mail:</label>
+            <input type="email" id="playermail" name="playermail" required>
+        </div>
+
+        <div>
+            <label for="playerTeam">Team:</label>
+            <input type="text" id="playerTeam" name="playerTeam" placeholder="Enter Team Name" required>
+        </div>
+        <div>
+            <label for="playerPosition">Position:</label>
+            <input type="text" id="playerPosition" name="playerPosition" placeholder="Enter Player Position" required>
+        </div>
+        <div>
+            <button type="submit">Add Player</button>
+        </div>
+    </form>
+
+    <div id="playerResult" style="margin-top: 20px;"></div>
+</section>
+
+
+
+    <!-- Login Section -->
+<section id="Login" style="display: none;">
+    <h2>Login</h2>
+    <p>Login to access more features...</p>
+
+    <form id="loginForm" action="login_tbl.php"  method="post" target="_blank">
+        <div>
+            <label for="username">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email or Phone" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <div>
+            <button type="submit" onclick="auth()">Login</button>
+        </div>
+    </form>
+
+    <div id="loginMessage" style="margin-top: 20px;"></div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
